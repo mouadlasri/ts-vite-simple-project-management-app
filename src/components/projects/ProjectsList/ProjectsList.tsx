@@ -11,6 +11,10 @@ interface ProjectsListProps {
 }
 
 export const ProjectsList = ({ projects }: ProjectsListProps) => {
+  const handleEdit = (project: Project) => {
+    console.log(`Project being edited: ${JSON.stringify(project)}`);
+  };
+
   console.log(projects);
 
   const projectsList: JSX.Element[] = [];
@@ -18,7 +22,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
   projects.forEach((project) => {
     projectsList.push(
       <div key={project.id} className="cols-sm">
-        <ProjectsListCard project={project} />
+        <ProjectsListCard project={project} onEdit={handleEdit} />
         <ProjectForm />
       </div>
     );

@@ -4,6 +4,7 @@ import { Project } from "../../../models/Project";
 
 interface ProjectCardProps {
   project: Project;
+  onEdit: (project: Project) => void;
 }
 
 function formatDescription(description: string): string {
@@ -15,9 +16,10 @@ function formatDescription(description: string): string {
 //   return description.substring(0, 60) + "...";
 // };
 
-export const ProjectsListCard = ({ project }: ProjectCardProps) => {
+export const ProjectsListCard = ({ project, onEdit }: ProjectCardProps) => {
   const handleEditClick = (projectBeingEdited: Project) => {
-    console.log(projectBeingEdited);
+    // console.log(projectBeingEdited);
+    onEdit(projectBeingEdited);
   };
 
   return (
