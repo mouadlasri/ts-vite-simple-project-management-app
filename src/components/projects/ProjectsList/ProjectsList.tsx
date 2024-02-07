@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./ProjectsList.css";
 
@@ -11,8 +11,12 @@ interface ProjectsListProps {
 }
 
 export const ProjectsList = ({ projects }: ProjectsListProps) => {
+  // state variable that holds the current project that is being edited
+  const [projectBeingEdited, setProjectBeingEdited] = useState({});
+
   const handleEdit = (project: Project) => {
-    console.log(`Project being edited: ${JSON.stringify(project)}`);
+    // console.log(`Project being edited: ${JSON.stringify(project)}`);
+    setProjectBeingEdited(project);
   };
 
   console.log(projects);
@@ -22,8 +26,7 @@ export const ProjectsList = ({ projects }: ProjectsListProps) => {
   projects.forEach((project) => {
     projectsList.push(
       <div key={project.id} className="cols-sm">
-        <ProjectsListCard project={project} onEdit={handleEdit} />
-        <ProjectForm />
+        {project === projectBeingEdited ? <ProjectForm /> : <ProjectsListCard project={project} onEdit={handleEdit} />}
       </div>
     );
   });

@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./ProjectForm.css";
+
 export const ProjectForm = () => {
   return (
     <form className="input-group vertical">
