@@ -6,6 +6,15 @@ interface ProjectCardProps {
   project: Project;
 }
 
+function formatDescription(description: string): string {
+  return description.substring(0, 60) + "...";
+}
+
+// This syntax is also correct
+// const formatDescription = (description: string): string => {
+//   return description.substring(0, 60) + "...";
+// };
+
 export const ProjectsListCard = ({ project }: ProjectCardProps) => {
   return (
     <div className="cols-sm">
