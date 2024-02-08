@@ -33,7 +33,11 @@ export const ProjectsList = ({ projects, onSave }: ProjectsListProps) => {
     projectsList.push(
       <div key={project.id} className="cols-sm">
         {/* if current project is being edited, then show form, otherwise show project information */}
-        {project === projectBeingEdited ? <ProjectForm onSave={onSave} onCancel={handleCancel} /> : <ProjectsListCard project={project} onEdit={handleEdit} />}
+        {project === projectBeingEdited ? (
+          <ProjectForm onSave={onSave} onCancel={handleCancel} initialProject={project} />
+        ) : (
+          <ProjectsListCard project={project} onEdit={handleEdit} />
+        )}
       </div>
     );
   });
