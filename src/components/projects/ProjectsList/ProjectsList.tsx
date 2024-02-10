@@ -24,6 +24,7 @@ export const ProjectsList = ({ projects, onSave }: ProjectsListProps) => {
 
   // Form function: function to handle cancel edditing in the form
   const handleCancel = () => {
+    console.log("clicked on cancel button");
     setProjectBeingEdited({}); // set the current project being edited to empty or None
   };
 

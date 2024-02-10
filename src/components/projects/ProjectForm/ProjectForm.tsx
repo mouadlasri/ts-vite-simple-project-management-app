@@ -44,14 +44,18 @@ export const ProjectForm = ({ initialProject, onSave, onCancel }: ProjectFormPro
   };
 
   const isValidForm = () => {
-    return errors.name.length === 0 && errors.description.length && errors.budget.length === 0;
+    return errors.name.length === 0 && errors.description.length === 0 && errors.budget.length === 0;
   };
 
   const handleSubmit = (event: SyntheticEvent) => {
     event.preventDefault();
-
+    console.log("clicked on save button");
     // check if form is valid
-    if (!isValidForm()) return;
+    if (!isValidForm()) {
+      console.log("Form is invalid");
+      console.log(errors);
+      return;
+    }
 
     onSave(project);
   };
